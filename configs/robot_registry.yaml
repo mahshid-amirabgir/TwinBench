@@ -1,0 +1,44 @@
+# ============================================================
+# Robot Registry — TwinBench v2 (6-robot edition)
+# ============================================================
+
+# Proxy robots (Tier A + C) — datasheet dynamics
+kr6:
+  name: "KUKA KR 6 R1820"
+  spec_file: "robot_specs/kr6.yaml"
+  dynamics_source: "datasheet"
+  tier: "proxy"
+
+rs006l:
+  name: "Kawasaki RS006L"
+  spec_file: "robot_specs/rs006l.yaml"
+  dynamics_source: "datasheet"
+  tier: "proxy"
+
+mpx1950:
+  name: "Yaskawa MPX1950"
+  spec_file: "robot_specs/mpx1950.yaml"
+  dynamics_source: "datasheet"
+  tier: "proxy"
+
+# URDF robots (Tier B) — manufacturer URDF dynamics
+ur5e:
+  name: "Universal Robots UR5e"
+  spec_file: "robot_specs/ur5e.yaml"
+  urdf_file: "urdf_models/ur5e.urdf"
+  dynamics_source: "urdf"
+  tier: "validation"
+
+ur10e:
+  name: "Universal Robots UR10e"
+  spec_file: "robot_specs/ur10e.yaml"
+  urdf_file: "urdf_models/ur10e.urdf"
+  dynamics_source: "urdf"
+  tier: "validation"
+
+tx60:
+  name: "Staubli TX60"
+  spec_file: "robot_specs/tx60.yaml"
+  urdf_file: "urdf_models/staubli_tx60.urdf"
+  dynamics_source: "urdf"
+  tier: "validation"

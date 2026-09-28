@@ -1,0 +1,10 @@
+name: Shelf_Reach
+description: Shelf picking workspace normalized to fractions of R_max
+geometry:
+  width_fraction: 0.25
+  height_fraction: 0.2
+  depth_fraction: 0.9
+vertical_offset_fraction: 0.15
+approach_cone_deg: 20
+num_points: 1500
+normalized: true

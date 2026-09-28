@@ -1,0 +1,97 @@
+name: "KUKA KR 6 R1820"
+
+# ============================================================
+#  SOURCE KEY:
+#    [DS-TABLE]  = Confirmed from KUKA KR6 R1820 datasheet
+#    [DS-DRAW]   = Read from workspace drawing dimensions
+#    [APPROX]    = Approximated / derived — not in datasheet
+#
+#  NOTE: This is a simplified kinematic model for benchmarking.
+#  DH parameters are derived from workspace drawing labels, not
+#  a manufacturer URDF. For verified geometry use the URDF from
+#  kroshu/kuka_robot_descriptions.
+#
+#  PROVENANCE, DYNAMICS: unlike RS006L and MPX1950 (whose I_proxy/tau_max
+#  are read directly from published per-joint datasheet tables), KUKA does
+#  not publish per-joint inertia or torque figures for the KR6 R1820. This
+#  robot's I_proxy, tau_max, B_proxy and link_lengths/radii below are all
+#  [APPROX] — derived from a homogeneous-cylinder approximation over the
+#  workspace-drawing link geometry, not read off a manufacturer table. See
+#  robot_specs/README.md for the same summary across all six robots.
+#
+#  Validation (computed):
+#    Max reach via grid search: 1.819 m (target 1.820 m, error 0.6 mm)
+#    FK/IK round-trip careful:    mean 0.005 mm, max 0.047 mm, 60/60 pass
+#    FK/IK round-trip benchmark:  mean 0.302 mm, max 0.997 mm, 60/60 pass
+#    5 mm guard threshold:        60/60 pass
+# ============================================================
+
+dh:
+  convention: "craig"
+
+  # Craig MDH a-index meaning:
+  #   a[0] = 0.0     base — zero in Craig convention
+  #   a[1] = 0.150   [DS-DRAW] shoulder offset — 150 mm horizontal
+  #                   label at base in workspace drawing
+  #   a[2] = 0.885   [APPROX] upper arm length — fitted to satisfy
+  #                   Rmax=1820 mm; drawing shows ~810 mm between
+  #                   A2 and A3 regions (difference due to DH frame
+  #                   placement vs drawing reference points)
+  #   a[3] = 0.080   [DS-DRAW] elbow offset — R80 label in drawing
+  #   a[4–5] = 0.0   standard spherical wrist
+  a: [0.0, 0.150, 0.885, 0.080, 0.0, 0.0]
+
+  # Correct Craig MDH alpha for 6R anthropomorphic arm with spherical wrist:
+  #   alpha[0] = 0       base — no twist
+  #   alpha[1] = -pi/2   J1→J2 shoulder twist
+  #   alpha[2] = 0       J2→J3 parallel axes (same bending plane)
+  #   alpha[3] = pi/2    J3→J4 starts spherical wrist
+  #   alpha[4] = -pi/2   J4→J5 wrist bend
+  #   alpha[5] = pi/2    J5→J6 final wrist rotation
+  alpha: [0.0, -1.5707963, 0.0, 1.5707963, -1.5707963, 1.5707963]
+
+  # d[0] = 0.400   [DS-DRAW] base height — ~450 mm vertical label
+  #                 in workspace drawing, 400 mm used (conservative)
+  # d[3] = 0.421   [DS-DRAW] forearm length — 421 mm horizontal
+  #                 dimension label in workspace drawing
+  # d[5] = 0.080   [DS-DRAW] tool flange — R80 label at wrist
+  d: [0.400, 0.0, 0.0, 0.421, 0.0, 0.080]
+
+  theta_offset: [0, 0, 0, 0, 0, 0]
+  joint_sign:   [1, 1, 1, 1, 1, 1]
+  # NOTE: KUKA A1, A4, A6 rotate mathematically negative per KUKA docs.
+  # FK/IK round-trip passes 60/60 with all +1, confirming internal
+  # consistency for position-only benchmarking. If comparing joint
+  # directions against physical hardware, verify sign convention.
+
+# ============================================================
+#  JOINT LIMITS — all from [DS-TABLE]
+# ============================================================
+joint_limits_deg:
+  min: [-170, -185, -137, -185, -120, -350]
+  max: [ 170,   65,  163,  185,  120,  350]
+
+# ============================================================
+#  DYNAMICS
+# ============================================================
+dynamics:
+  Rmax: 1.820          # [DS-TABLE] confirmed maximum reach
+  rated_payload: 6.0   # [DS-TABLE] confirmed
+  payload_used: 1.8    # [APPROX]  = 0.30 × rated_payload (benchmark rule)
+
+  # Joint velocities — all from [DS-TABLE]
+  qd_max_deg: [220, 210, 270, 381, 311, 492]
+
+  # Link geometry for inertia approximation only (homogeneous cylinder
+  # model). NOT kinematic DH parameters — differences from DH a/d
+  # values are expected. link_lengths represent physical link extents
+  # for mass and inertia estimation; DH a/d values define kinematics.
+  link_lengths: [0.18, 0.95, 0.72, 0.20, 0.15, 0.12]  # [APPROX]
+  link_radii:   [0.10, 0.07, 0.07, 0.05, 0.045, 0.040] # [APPROX]
+
+  # Torque limits — estimated from payload scaling [APPROX]
+  tau_max: [20.0, 18.0, 16.0, 13.0, 13.0, 7.5]  # [APPROX]
+
+  # Inertia and friction — geometric cylinder approximation [APPROX]
+  I_proxy: [0.35, 0.42, 0.38, 0.45, 0.40, 0.30]  # [APPROX]
+  B_proxy: [0.05, 0.05, 0.05, 0.04, 0.04, 0.03]  # [APPROX]

@@ -1,0 +1,13 @@
+robot,scene,n_points,n_feasible,pct_feasible,seeds,ik_restarts,source
+kr6,open_reach,12000,6793,56.6083,10,5,full_protocol_measured_per_cell
+kr6,shelf_reach,15000,11582,77.2133,10,5,full_protocol_measured_per_cell
+mpx1950,open_reach,12000,6633,55.275,10,5,full_protocol_measured_per_cell
+mpx1950,shelf_reach,15000,13475,89.8333,10,5,full_protocol_measured_per_cell
+rs006l,open_reach,12000,9883,82.3583,10,5,full_protocol_measured_per_cell
+rs006l,shelf_reach,15000,15000,100.0,10,5,full_protocol_measured_per_cell
+tx60,open_reach,12000,7524,62.7,10,5,full_protocol_prior_verification
+tx60,shelf_reach,15000,14595,97.3,10,5,full_protocol_prior_verification
+ur10e,open_reach,12000,12000,100.0,10,5,full_protocol_prior_verification
+ur10e,shelf_reach,15000,15000,100.0,10,5,full_protocol_prior_verification
+ur5e,open_reach,12000,12000,100.0,10,5,full_protocol_prior_verification
+ur5e,shelf_reach,15000,15000,100.0,10,5,full_protocol_prior_verification

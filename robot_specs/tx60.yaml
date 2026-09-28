@@ -1,0 +1,81 @@
+name: Staubli TX60
+source: URDF
+manufacturer: Staubli
+urdf_file: urdf_models/staubli_tx60.urdf
+dh:
+  convention: urdf
+  a: &id001
+  - 0.0
+  - 0.0
+  - 0.0
+  - 0.0
+  - 0.0
+  - 0.0
+  alpha: *id001
+  d: *id001
+  theta_offset: *id001
+  joint_sign:
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  note: DH not used for URDF robots. Kinematics via Pinocchio.
+joint_limits_deg:
+  min:
+  - -180.0
+  - -127.5
+  - -142.5
+  - -270.0
+  - -122.5
+  - -270.0
+  max:
+  - 180.0
+  - 127.5
+  - 142.5
+  - 270.0
+  - 132.5
+  - 270.0
+dynamics:
+  Rmax: 0.67
+  rated_payload: 4.5
+  payload_used: 1.3499999999999999
+  qd_max_deg:
+  - 435.0
+  - 410.0
+  - 540.0
+  - 995.0
+  - 1065.0
+  - 1445.0
+  tau_max:
+  - 126.0
+  - 71.0
+  - 38.0
+  - 7.0
+  - 8.0
+  - 2.0
+  I_proxy:
+  - 0.205632
+  - 1.152194
+  - 0.150471
+  - 0.004166
+  - 0.000194
+  - 0.0001
+  B_proxy:
+  - 0.029208
+  - 0.030989
+  - 0.023529
+  - 0.012769
+  - 0.01193
+  - 0.008793
+  G_nom:
+  - 31.5
+  - 17.75
+  - 9.5
+  - 1.75
+  - 2.0
+  - 0.5
+  link_lengths: *id001
+  link_radii: *id001
+  proxy_source: diagonalized_from_urdf_M(q=0)

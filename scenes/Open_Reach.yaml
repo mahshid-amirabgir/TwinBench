@@ -1,0 +1,14 @@
+name: Open_Reach
+description: Spherical open workspace sampled at 40%, 70%, 90% of R_max
+Rmax_fraction_samples:
+- 0.4
+- 0.7
+- 0.9
+azimuth_range_deg:
+- -90
+- 90
+elevation_range_deg:
+- -45
+- 45
+num_points: 1200
+normalized: true

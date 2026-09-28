@@ -1,0 +1,29 @@
+# Optional: `pip install -e .` puts twinbench on the import path system-wide.
+# It is NOT required — every script under experiments/, analysis/, diagnostics/ and
+# figures/ bootstraps src/ onto sys.path itself and runs directly from a checkout.
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "twinbench"
+version = "2.1.0"
+description = "A cross-fidelity benchmark for robot digital twins: 6 robots x 4 trajectories x 4 controllers x 2 dynamics fidelities"
+readme = "README.md"
+requires-python = ">=3.11"
+license = { file = "LICENSE" }
+dependencies = ["numpy>=2.3,<3", "pandas>=2.2", "scipy>=1.14", "matplotlib>=3.9", "pyyaml>=6.0"]
+
+[project.optional-dependencies]
+test = ["pytest>=8.0"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[project.urls]
+Homepage = "https://github.com/mahshid-amirabgir/TwinBench"
+Repository = "https://github.com/mahshid-amirabgir/TwinBench"
+DOI = "https://doi.org/10.5281/zenodo.23012381"

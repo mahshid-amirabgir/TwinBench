@@ -1,0 +1,81 @@
+name: Universal Robots UR10e
+source: URDF
+manufacturer: Universal Robots
+urdf_file: urdf_models/ur10e.urdf
+dh:
+  convention: urdf
+  a: &id001
+  - 0.0
+  - 0.0
+  - 0.0
+  - 0.0
+  - 0.0
+  - 0.0
+  alpha: *id001
+  d: *id001
+  theta_offset: *id001
+  joint_sign:
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  - 1
+  note: DH not used for URDF robots. Kinematics via Pinocchio.
+joint_limits_deg:
+  min:
+  - -360.0
+  - -360.0
+  - -180.0
+  - -360.0
+  - -360.0
+  - -360.0
+  max:
+  - 360.0
+  - 360.0
+  - 180.0
+  - 360.0
+  - 360.0
+  - 360.0
+dynamics:
+  Rmax: 1.3
+  rated_payload: 10.0
+  payload_used: 3.0
+  qd_max_deg:
+  - 120.0
+  - 120.0
+  - 180.0
+  - 180.0
+  - 180.0
+  - 180.0
+  tau_max:
+  - 330.0
+  - 330.0
+  - 150.0
+  - 56.0
+  - 56.0
+  - 56.0
+  I_proxy:
+  - 11.215983
+  - 10.690117
+  - 1.815257
+  - 0.04188
+  - 0.00735
+  - 0.000205
+  B_proxy:
+  - 0.456527
+  - 0.456527
+  - 0.304351
+  - 0.304351
+  - 0.304351
+  - 0.304351
+  G_nom:
+  - 82.5
+  - 82.5
+  - 37.5
+  - 14.0
+  - 14.0
+  - 14.0
+  link_lengths: *id001
+  link_radii: *id001
+  proxy_source: diagonalized_from_urdf_M(q=0)

@@ -1,0 +1,33 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it using the metadata below."
+title: "TwinBench: Multi-Fidelity Benchmarking of Controllers for 6-DOF Industrial Manipulators"
+type: software
+authors:
+  - family-names: "Amirabgir"
+    given-names: "Mahshid"
+    affiliation: "Department of Electronic Engineering, University of Rome Tor Vergata, Via del Politecnico 1, 00133 Rome, Italy"
+  - family-names: "Amirabgir"
+    given-names: "Mahdieh"
+    affiliation: "Department of Civil and Environmental Engineering (DICA), Politecnico di Milano, Piazza Leonardo da Vinci 32, 20133 Milan, Italy"
+  - family-names: "Orengo"
+    given-names: "Giancarlo"
+    affiliation: "Department of Electronic Engineering, University of Rome Tor Vergata, Via del Politecnico 1, 00133 Rome, Italy"
+  - family-names: "Khalil Loo"
+    given-names: "Behrooz"
+    affiliation: "Department of Statistics and Actuarial Science, University of Iowa, 241 Schaeffer Hall, 20 East Washington Street, Iowa City, IA 52242-1409, USA"
+  - family-names: "Aghsami"
+    given-names: "Amir"
+    affiliation: "Department of Industrial Engineering, Ankara Yıldırım Beyazıt University, Esenboğa Campus, Esenboğa, 06760 Çubuk / Ankara, Türkiye"
+repository-code: "https://github.com/mahshid-amirabgir/TwinBench"
+url: "https://doi.org/10.5281/zenodo.23012381"
+doi: "10.5281/zenodo.23012381"
+license: "MIT"
+version: "2.1"
+date-released: "2026-03-31"
+keywords:
+  - robotics
+  - benchmarking
+  - simulation
+  - controller evaluation
+  - digital twin
+  - multi-fidelity

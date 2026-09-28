@@ -1,0 +1,15 @@
+\begin{tabular}{lcc}
+\toprule
+Statistic & Tier-scaled gains & Frozen at proxy value \\
+\midrule
+Subset $\taub$ & 0.167 & 0.167 \\
+Subset CI & [0.056, 0.333] & [0.056, 0.333] \\
+Four-controller $\taub$ & 0.583 & 0.583 \\
+Top-controller disagreement (subset) & 20/36 & 20/36 \\
+Per-robot $\taub$ (UR10e/UR5e/TX60) & $+0.333$/$+0.111$/$+0.056$ & $+0.333$/$+0.111$/$+0.056$ \\
+\midrule
+CTC-SMC rigid-body $\rmsen$ & 0.0763 & 0.0764 \\
+PBC rigid-body $\rmsen$ & 0.0317 & 0.0314 \\
+Rigid-body ranking & \multicolumn{2}{c}{PBC $<$ CTC-SMC $<$ CTC-PD $<$ PD+g (both)} \\
+\bottomrule
+\end{tabular}

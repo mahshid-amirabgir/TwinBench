@@ -1,0 +1,15 @@
+{
+  "title": "TwinBench: Multi-Fidelity Benchmarking of Controllers for 6-DOF Industrial Manipulators",
+  "description": "Code, experimental data, and scripts to regenerate all tables and figures for TwinBench, a multi-fidelity (proxy vs rigid-body) controller benchmark for 6-DoF industrial manipulators.",
+  "creators": [
+    {"name": "Amirabgir, Mahshid", "affiliation": "University of Rome Tor Vergata"},
+    {"name": "Amirabgir, Mahdieh", "affiliation": "Politecnico di Milano"},
+    {"name": "Orengo, Giancarlo", "affiliation": "University of Rome Tor Vergata"},
+    {"name": "Khalil Loo, Behrooz", "affiliation": "University of Iowa"},
+    {"name": "Aghsami, Amir", "affiliation": "Ankara Yıldırım Beyazıt University"}
+  ],
+  "keywords": ["robotics", "benchmarking", "control", "simulation", "digital twin", "reproducibility"],
+  "license": "mit",
+  "upload_type": "software",
+  "access_right": "open"
+}
